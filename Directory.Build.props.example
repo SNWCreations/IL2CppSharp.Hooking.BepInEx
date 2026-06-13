@@ -8,6 +8,6 @@
 
     <!-- Optional. Override package versions for local feed testing. -->
     <!-- <BepInExCoreVersion>6.0.0-be.759</BepInExCoreVersion> -->
-    <!-- <IL2CppSharpHookingVersion>0.1.0-alpha.1</IL2CppSharpHookingVersion> -->
+    <!-- <IL2CppSharpHookingVersion>0.1.0-alpha.2</IL2CppSharpHookingVersion> -->
   </PropertyGroup>
 </Project>

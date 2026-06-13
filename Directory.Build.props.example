@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <!-- Optional. Use local source checkouts instead of package references. -->
+    <!-- <UseLocalBepInExCoreProject>true</UseLocalBepInExCoreProject> -->
+    <!-- <BepInExCoreProject>PATH_TO_BEPINEX_SOURCE\BepInEx.Core\BepInEx.Core.csproj</BepInExCoreProject> -->
+    <!-- <UseLocalIL2CppSharpHookingProject>true</UseLocalIL2CppSharpHookingProject> -->
+    <!-- <IL2CppSharpHookingProject>PATH_TO_IL2CPPSHARP_HOOKING_REPO\IL2CppSharp.Hooking.csproj</IL2CppSharpHookingProject> -->
+
+    <!-- Optional. Override package versions for local feed testing. -->
+    <!-- <BepInExCoreVersion>6.0.0-be.759</BepInExCoreVersion> -->
+    <!-- <IL2CppSharpHookingVersion>0.1.0-alpha.1</IL2CppSharpHookingVersion> -->
+  </PropertyGroup>
+</Project>

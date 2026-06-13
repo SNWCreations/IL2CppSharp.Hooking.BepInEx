@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>IL2CppSharp.Hooking.BepInEx</AssemblyName>
+    <RootNamespace>IL2CppSharp.Hooking.BepInEx</RootNamespace>
+    <PackageId>IL2CppSharp.Hooking.BepInEx</PackageId>
+    <Version>0.1.0-alpha.1</Version>
+    <Authors>SNWCreations</Authors>
+    <Description>BepInEx logging adapter for IL2CppSharp.Hooking.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/SNWCreations/IL2CppSharp.Hooking.BepInEx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SNWCreations/IL2CppSharp.Hooking.BepInEx.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>il2cpp;unity;modding;hooking;hybridclr;bepinex</PackageTags>
+    <Copyright>Copyright (c) 2026 SNWCreations, IL2CppSharp.Hooking contributors</Copyright>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BepInExCoreVersion Condition="'$(BepInExCoreVersion)' == ''">6.0.0-be.759</BepInExCoreVersion>
+    <IL2CppSharpHookingVersion Condition="'$(IL2CppSharpHookingVersion)' == ''">0.1.0-alpha.1</IL2CppSharpHookingVersion>
+    <UseLocalBepInExCoreProject Condition="'$(UseLocalBepInExCoreProject)' == ''">false</UseLocalBepInExCoreProject>
+    <UseLocalIL2CppSharpHookingProject Condition="'$(UseLocalIL2CppSharpHookingProject)' == ''">false</UseLocalIL2CppSharpHookingProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**\*.cs;obj\**\*.cs" />
+    <EmbeddedResource Remove="bin\**\*;obj\**\*" />
+    <Content Remove="bin\**\*;obj\**\*" />
+    <None Remove="bin\**\*;obj\**\*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseLocalBepInExCoreProject)' == 'true'">
+    <ProjectReference Include="$(BepInExCoreProject)">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseLocalBepInExCoreProject)' != 'true'">
+    <PackageReference Include="BepInEx.Core" Version="$(BepInExCoreVersion)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseLocalIL2CppSharpHookingProject)' == 'true'">
+    <ProjectReference Include="$(IL2CppSharpHookingProject)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseLocalIL2CppSharpHookingProject)' != 'true'">
+    <PackageReference Include="IL2CppSharp.Hooking" Version="$(IL2CppSharpHookingVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="LICENSE" Pack="true" PackagePath="\" Condition="Exists('LICENSE')" />
+    <None Include="THIRD_PARTY_NOTICES.md" Pack="true" PackagePath="\" Condition="Exists('THIRD_PARTY_NOTICES.md')" />
+  </ItemGroup>
+
+  <Target Name="ValidateLocalProjectReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(UseLocalBepInExCoreProject)' == 'true' and ('$(BepInExCoreProject)' == '' or !Exists('$(BepInExCoreProject)'))"
+           Text="UseLocalBepInExCoreProject is true, but BepInExCoreProject is empty or does not exist. Set it in Directory.Build.props." />
+    <Error Condition="'$(UseLocalIL2CppSharpHookingProject)' == 'true' and ('$(IL2CppSharpHookingProject)' == '' or !Exists('$(IL2CppSharpHookingProject)'))"
+           Text="UseLocalIL2CppSharpHookingProject is true, but IL2CppSharpHookingProject is empty or does not exist. Set it in Directory.Build.props." />
+  </Target>
+
+</Project>

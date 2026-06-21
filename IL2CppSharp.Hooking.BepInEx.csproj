@@ -5,7 +5,7 @@
     <AssemblyName>IL2CppSharp.Hooking.BepInEx</AssemblyName>
     <RootNamespace>IL2CppSharp.Hooking.BepInEx</RootNamespace>
     <PackageId>IL2CppSharp.Hooking.BepInEx</PackageId>
-    <Version>0.1.1-alpha.1</Version>
+    <Version>0.1.1-alpha.2</Version>
     <Authors>SNWCreations</Authors>
     <Description>BepInEx logging adapter for IL2CppSharp.Hooking.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -20,7 +20,7 @@
 
   <PropertyGroup>
     <BepInExCoreVersion Condition="'$(BepInExCoreVersion)' == ''">6.0.0-be.759</BepInExCoreVersion>
-    <IL2CppSharpHookingVersion Condition="'$(IL2CppSharpHookingVersion)' == ''">0.1.1-alpha.1</IL2CppSharpHookingVersion>
+    <IL2CppSharpHookingVersion Condition="'$(IL2CppSharpHookingVersion)' == ''">0.1.1-alpha.2</IL2CppSharpHookingVersion>
     <UseLocalBepInExCoreProject Condition="'$(UseLocalBepInExCoreProject)' == ''">false</UseLocalBepInExCoreProject>
     <UseLocalIL2CppSharpHookingProject Condition="'$(UseLocalIL2CppSharpHookingProject)' == ''">false</UseLocalIL2CppSharpHookingProject>
   </PropertyGroup>
